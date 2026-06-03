@@ -1,0 +1,35 @@
+{
+  "civilization_events": [
+    {
+      "step": 6,
+      "kind": "odor",
+      "detail": "💨 Lv4(Mammoth)",
+      "frontend": "💩ScatLang"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×3 history rewrite",
+      "frontend": "🦍DungLang",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×3 history rewrite",
+      "frontend": "🦍DungLang",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 1,
+      "kind": "ghost_odor",
+      "detail": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "frontend": "🦣CaveA+🦣CaveB",
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 1
+    }
+  ]
+}

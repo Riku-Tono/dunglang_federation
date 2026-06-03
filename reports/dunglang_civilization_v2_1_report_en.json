@@ -1,0 +1,273 @@
+{
+  "version": "DungLang Civilization v2.1",
+  "optimizer": {
+    "original_nodes": 8,
+    "optimized_nodes": 2,
+    "folded_nodes": 6,
+    "philosophy_calls": 0,
+    "axiom_break_prob": 0.0
+  },
+  "federation": [
+    {
+      "case": "common success",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "💩ScatLang",
+      "right_frontend": "🌊SeaIR",
+      "left_steps": 24,
+      "right_steps": 24,
+      "left_error": null,
+      "right_error": null,
+      "kont_equal": true
+    },
+    {
+      "case": "philosophy same failure",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "🦍DungLang",
+      "right_frontend": "🍠YakiimoIR",
+      "left_steps": 2,
+      "right_steps": 2,
+      "left_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🦍DungLang",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong?"
+      },
+      "right_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🍠YakiimoIR",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong?"
+      },
+      "kont_equal": true
+    }
+  ],
+  "temporal_rewrites": [
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    }
+  ],
+  "civilization_diff": {
+    "official_history_count": 0,
+    "archaeological_artifact_count": 2,
+    "full_log_count": 7,
+    "missing_from_official": [
+      "💨 Lv7(Mammoth)",
+      "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "🍌×10 past rewrite",
+      "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "🍌×10 past rewrite",
+      "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "🍌×10 → 2 official history entries rewritten"
+    ]
+  },
+  "ghost_odor": {
+    "step": 1,
+    "kind": "ghost_odor",
+    "detail": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+    "frontend": "🦣CaveA+🦣CaveB",
+    "era": "liminal",
+    "cave_a": "🦣CaveA",
+    "cave_b": "🦣CaveB",
+    "odor_level": 1
+  },
+  "archaeology": [
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-1",
+      "source_event": "💨 Lv7(Mammoth)",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-2",
+      "source_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "confidence": 0.85
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 Cave A painting: Traces of something a mammoth did",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-A-001",
+      "source_event": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "confidence": 0.72
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 Cave B painting: Observer recorded as missing_observer",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-B-001",
+      "source_event": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "confidence": 0.64
+    }
+  ],
+  "theorem_results": [
+    {
+      "statement": "fart = wind",
+      "result": "proof failed",
+      "reason": "An observer exists, so the moment it is observed it becomes an incident rather than wind",
+      "theorem": "Gorilla Incompleteness Theorem v2.1"
+    },
+    {
+      "statement": "fart ≠ wind",
+      "result": "proof failed",
+      "reason": "Wind direction is an unbound variable and the meteorological gorilla refused to testify",
+      "theorem": "Gorilla Incompleteness Theorem v2.1"
+    },
+    {
+      "statement": "This theorem is provable",
+      "result": "proof failed",
+      "reason": "The theorem ends up observing its own odor",
+      "theorem": "Gorilla Incompleteness Theorem v2.1"
+    }
+  ],
+  "events": [
+    {
+      "step": 17,
+      "kind": "odor",
+      "detail": "💨 Lv7(Mammoth)",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 34,
+      "kind": "diplomatic",
+      "detail": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-1",
+      "source_event": "💨 Lv7(Mammoth)",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-2",
+      "source_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "banana_gc",
+      "detail": "🍌×10 → 2 official history entries rewritten",
+      "frontend": "🦍DungLang",
+      "era": "meta"
+    },
+    {
+      "step": 1,
+      "kind": "ghost_odor",
+      "detail": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "frontend": "🦣CaveA+🦣CaveB",
+      "era": "liminal",
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 1
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 Cave A painting: Traces of something a mammoth did",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-A-001",
+      "source_event": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "confidence": 0.72
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 Cave B painting: Observer recorded as missing_observer",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-B-001",
+      "source_event": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+      "confidence": 0.64
+    },
+    {
+      "step": 88,
+      "kind": "causality_leak",
+      "detail": "Trace not in official history detected: 💨 Lv7(Mammoth)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "leaked_from": "💨 Lv7(Mammoth)",
+      "leaked_into": "ART-88-1"
+    },
+    {
+      "step": 88,
+      "kind": "causality_leak",
+      "detail": "Trace not in official history detected: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "leaked_from": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "leaked_into": "ART-88-2"
+    }
+  ]
+}

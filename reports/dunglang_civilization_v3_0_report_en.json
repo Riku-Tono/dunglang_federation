@@ -1,0 +1,276 @@
+{
+  "version": "DungLang Civilization v3.0",
+  "constitution": {
+    "articles": [
+      {
+        "article_no": 1,
+        "title": "Witness Eligibility",
+        "rule": "The PhilosophyGorilla may not serve as a witness"
+      },
+      {
+        "article_no": 2,
+        "title": "GhostOdor Presumption of Innocence",
+        "rule": "GhostOdor shall not be directly presumed guilty"
+      },
+      {
+        "article_no": 3,
+        "title": "Banana History Rewrite Right",
+        "rule": "A history rewrite may be filed with 3 or more bananas"
+      },
+      {
+        "article_no": 4,
+        "title": "Cross-Border Odor Diplomacy",
+        "rule": "Cross-border GhostOdor events are diplomatic matters"
+      }
+    ]
+  },
+  "election": {
+    "step": 200,
+    "term_no": 17,
+    "winners": [
+      {
+        "name": "RevolutionGorilla",
+        "party": "Cave Revolution Front",
+        "policy": "Revolutionary Acquittalism"
+      },
+      {
+        "name": "ResearchGorilla",
+        "party": "Empiricist Party",
+        "policy": "Moderate Council"
+      },
+      {
+        "name": "MeteorologicalGorilla",
+        "party": "Wind Direction Party",
+        "policy": "Moderate Council"
+      }
+    ],
+    "vote_share": {
+      "ResearchGorilla": 0.259,
+      "MeteorologicalGorilla": 0.174,
+      "LegalGorilla": 0.057,
+      "BananaPartyGorilla": 0.174,
+      "RevolutionGorilla": 0.336
+    }
+  },
+  "ghost_verdict": "GhostOdor → Not Guilty. Odor is the people's self-expression. Uho.",
+  "history_rewrites": [
+    {
+      "step": 300,
+      "kind": "history_rewrite",
+      "detail": "🍌×3: Official history rewritten",
+      "frontend": "BananaGC",
+      "era": "meta",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 300,
+      "kind": "history_rewrite",
+      "detail": "🍌×3: Official history rewritten",
+      "frontend": "BananaGC",
+      "era": "meta",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    }
+  ],
+  "metrics": {
+    "stability": 68.5,
+    "diplomatic_tension": 50,
+    "philosophy_pollution": 36,
+    "history_rewrite_rate": 12.5,
+    "ghost_odor_count": 1,
+    "myth_pressure": 92
+  },
+  "events": [
+    {
+      "step": 6,
+      "kind": "odor",
+      "detail": "💨 Lv7(Mammoth)",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 42,
+      "kind": "diplomatic",
+      "detail": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 55,
+      "kind": "ghost_odor",
+      "detail": "👻 Ghost Odor Lv5: CaveA committed · CaveB rolled back",
+      "frontend": "2PCIR",
+      "era": "liminal",
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 5
+    },
+    {
+      "step": 120,
+      "kind": "constitution",
+      "detail": "⚖️ DungLang Constitution enacted: GhostOdor Presumption of Innocence adopted",
+      "frontend": "ConstitutionIR",
+      "era": "legal"
+    },
+    {
+      "step": 150,
+      "kind": "constitution_violation",
+      "detail": "⚖️ Article 2 violation: GhostOdor directly presumed guilty",
+      "frontend": "ConstitutionIR",
+      "era": "legal",
+      "article_no": 2,
+      "article_title": "GhostOdor Presumption of Innocence",
+      "offender": "LegalGorilla",
+      "severity": 4
+    },
+    {
+      "step": 151,
+      "kind": "constitution_violation",
+      "detail": "⚖️ Article 1 violation: PhilosophyGorilla used as witness",
+      "frontend": "ConstitutionIR",
+      "era": "legal",
+      "article_no": 1,
+      "article_title": "Witness Eligibility",
+      "offender": "PhilosophyGorilla",
+      "severity": 5
+    },
+    {
+      "step": 200,
+      "kind": "election",
+      "detail": "🗳️ CouncilTerm #17: RevolutionGorilla, ResearchGorilla, MeteorologicalGorilla elected",
+      "frontend": "ElectionIR",
+      "era": "political"
+    },
+    {
+      "step": 210,
+      "kind": "council_verdict",
+      "detail": "Council Verdict: GhostOdor → Not Guilty. Odor is the people's self-expression. Uho.",
+      "frontend": "CouncilIR",
+      "era": "political"
+    },
+    {
+      "step": 300,
+      "kind": "history_rewrite",
+      "detail": "🍌×3: Official history rewritten",
+      "frontend": "BananaGC",
+      "era": "meta",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 300,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-300-1",
+      "source_event": "💨 Lv7(Mammoth)",
+      "confidence": 0.5
+    },
+    {
+      "step": 300,
+      "kind": "history_rewrite",
+      "detail": "🍌×3: Official history rewritten",
+      "frontend": "BananaGC",
+      "era": "meta",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 300,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-300-2",
+      "source_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "confidence": 0.5
+    },
+    {
+      "step": 300,
+      "kind": "banana_gc",
+      "detail": "🍌×3: 2 entries erased from official history",
+      "frontend": "BananaGC",
+      "era": "meta"
+    },
+    {
+      "step": 450,
+      "kind": "legend",
+      "detail": "📜 Legend: Once an invisible odor passed from cave to cave. No one took responsibility, and only the stone tablets trembled.",
+      "frontend": "MythIR",
+      "era": "legendary",
+      "source_events": [
+        "💨 Lv7(Mammoth)",
+        "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+        "👻 Ghost Odor Lv5: CaveA committed · CaveB rolled back"
+      ]
+    },
+    {
+      "step": 900,
+      "kind": "myth",
+      "detail": "✨ Myth: When three bananas were offered, the incident was erased from history. But the cave paintings did not stay silent, and GhostOdor returns as the wind of the night.",
+      "frontend": "MythIR",
+      "era": "mythic",
+      "myth_id": "MYTH-GHOST-ODOR-001",
+      "doctrine": "The odor does not vanish. Only the record does.",
+      "source_events": [
+        "💨 Lv7(Mammoth)",
+        "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+        "👻 Ghost Odor Lv5: CaveA committed · CaveB rolled back"
+      ]
+    },
+    {
+      "step": 1050,
+      "kind": "religion",
+      "detail": "⛪ Church of GhostOdor Founded: Doctrine — \"The odor does not vanish; only the record does.\"",
+      "frontend": "MythIR",
+      "era": "religious"
+    }
+  ],
+  "official_history": [
+    {
+      "step": 120,
+      "kind": "constitution",
+      "detail": "⚖️ DungLang Constitution enacted: GhostOdor Presumption of Innocence adopted",
+      "frontend": "ConstitutionIR",
+      "era": "legal"
+    },
+    {
+      "step": 200,
+      "kind": "election",
+      "detail": "🗳️ CouncilTerm #17: RevolutionGorilla, ResearchGorilla, MeteorologicalGorilla elected",
+      "frontend": "ElectionIR",
+      "era": "political"
+    },
+    {
+      "step": 210,
+      "kind": "council_verdict",
+      "detail": "Council Verdict: GhostOdor → Not Guilty. Odor is the people's self-expression. Uho.",
+      "frontend": "CouncilIR",
+      "era": "political"
+    }
+  ],
+  "archaeology": [
+    {
+      "step": 300,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-300-1",
+      "source_event": "💨 Lv7(Mammoth)",
+      "confidence": 0.5
+    },
+    {
+      "step": 300,
+      "kind": "artifact",
+      "detail": "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-300-2",
+      "source_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "confidence": 0.5
+    }
+  ]
+}

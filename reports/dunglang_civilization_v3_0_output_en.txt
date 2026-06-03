@@ -1,0 +1,69 @@
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DungLang Civilization v3.0 🦍🔥🪨⚖️🗳️📜✨
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  v2.2 + ⑩ Constitution Federation + ⑪ Election System + ⑫ Metrics + ⑬ Myth Generator
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⑩ Constitution Federation
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Article 1  Witness Eligibility: The PhilosophyGorilla may not serve as a witness
+  Article 2  GhostOdor Presumption of Innocence: GhostOdor shall not be directly presumed guilty
+  Article 3  Banana History Rewrite Right: A history rewrite may be filed with 3 or more bananas
+  Article 4  Cross-Border Odor Diplomacy: Cross-border GhostOdor events are diplomatic matters
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⑪ Election System
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CouncilTerm #17
+    RevolutionGorilla      33.6%
+    ResearchGorilla        25.9%
+    MeteorologicalGorilla  17.4%
+    BananaPartyGorilla     17.4%
+    LegalGorilla            5.7%
+  Verdict: GhostOdor → Not Guilty. Odor is the people's self-expression. Uho.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⑫ Civilization Metrics
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 Civilization Metrics
+  Civilization Stability    ███████░░░  68.5%
+  Diplomatic Tension        █████░░░░░  50.0%
+  Philosophy Pollution      ████░░░░░░  36.0%
+  History Rewrite Rate      █░░░░░░░░░  12.5%
+  Myth Pressure             █████████░  92.0%
+  GhostOdor Remaining       1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ⑬ Myth Generator
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  step  450: 📜 Legend: Once an invisible odor passed from cave to cave. No one took responsibility, and only the stone tablets trembled.
+  step  900: ✨ Myth: When three bananas were offered, the incident was erased from history. But the cave paintings did not stay silent, and GhostOdor returns as the wind of the night.
+  step 1050: ⛪ Church of GhostOdor Founded: Doctrine — "The odor does not vanish; only the record does."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Replay Civilization
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📜 Replay Civilization v3.0
+  step    6 | 💨 [official]      💨 Lv7(Mammoth)
+  step   42 | 🌍 [official]      🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14
+  step   55 | 👻 [liminal]       👻 Ghost Odor Lv5: CaveA committed · CaveB rolled back
+  step  120 | ⚖️ [legal]         ⚖️ DungLang Constitution enacted: GhostOdor Presumption of Innocence adopted
+  step  150 | 🚨 [legal]         ⚖️ Article 2 violation: GhostOdor directly presumed guilty
+  step  151 | 🚨 [legal]         ⚖️ Article 1 violation: PhilosophyGorilla used as witness
+  step  200 | 🗳️ [political]     🗳️ CouncilTerm #17: RevolutionGorilla, ResearchGorilla, MeteorologicalGorilla elected
+  step  210 | 🏛️ [political]     Council Verdict: GhostOdor → Not Guilty. Odor is the people's self-expression. Uho.
+  step  300 | 🪨 [archaeological] 🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14
+  step  300 | 🪨 [archaeological] 🪨 Cave painting trace: 💨 Lv7(Mammoth)
+  step  300 | 🍌 [meta]          🍌×3: 2 entries erased from official history
+  step  300 | 📜🔥 [meta]        🍌×3: Official history rewritten
+  step  300 | 📜🔥 [meta]        🍌×3: Official history rewritten
+  step  450 | 📜 [legendary]     📜 Legend: Once an invisible odor passed from cave to cave. No one took responsibility, and only the stone tablets trembled.
+  step  900 | ✨ [mythic]        ✨ Myth: When three bananas were offered, the incident was erased from history. But the cave paintings did not stay silent, and GhostOdor returns as the wind of the night.
+  step 1050 | ⛪ [religious]     ⛪ Church of GhostOdor Founded: Doctrine — "The odor does not vanish; only the record does."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  v3.0 complete
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  JSON report: /mnt/data/dunglang_civilization_v3_0_report.json
+  Success is the same. Failure is the same. Even if history vanishes, the myth remains. Uho.

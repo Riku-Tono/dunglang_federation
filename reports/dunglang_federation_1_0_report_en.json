@@ -1,0 +1,136 @@
+{
+  "cases": [
+    {
+      "case": "mod by zero",
+      "trace_equal": true,
+      "error_equal": true,
+      "surface_diff": true,
+      "step_left": 12,
+      "step_right": 12,
+      "left_error": {
+        "step": 11,
+        "control_kind": "ReturnValue",
+        "expr_kind": "💩₀",
+        "kont_kind": "ModRightK",
+        "kont_depth": 2,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "💩ScatLang",
+        "error_type": "ScatError",
+        "error_message": "mod by zero"
+      },
+      "right_error": {
+        "step": 11,
+        "control_kind": "ReturnValue",
+        "expr_kind": "💩₀",
+        "kont_kind": "ModRightK",
+        "kont_depth": 2,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🌊SeaIR",
+        "error_type": "ScatError",
+        "error_message": "mod by zero"
+      }
+    },
+    {
+      "case": "unbound variable",
+      "trace_equal": true,
+      "error_equal": true,
+      "surface_diff": true,
+      "step_left": 2,
+      "step_right": 2,
+      "left_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "Var",
+        "kont_kind": "FlushK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "💩ScatLang",
+        "error_type": "ScatError",
+        "error_message": "unbound variable: missing"
+      },
+      "right_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "Var",
+        "kont_kind": "FlushK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🌊SeaIR",
+        "error_type": "ScatError",
+        "error_message": "unbound variable: missing"
+      }
+    },
+    {
+      "case": "step limit / constipation",
+      "trace_equal": true,
+      "error_equal": true,
+      "surface_diff": true,
+      "step_left": 40,
+      "step_right": 40,
+      "left_error": {
+        "step": 40,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PoopSuccExpr",
+        "kont_kind": "NeqRightK",
+        "kont_depth": 2,
+        "env_keys": [
+          "x"
+        ],
+        "observed_count": 0,
+        "frontend": "💩ScatLang",
+        "error_type": "StepLimitError",
+        "error_message": "step limit exceeded: 40"
+      },
+      "right_error": {
+        "step": 40,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PoopSuccExpr",
+        "kont_kind": "NeqRightK",
+        "kont_depth": 2,
+        "env_keys": [
+          "x"
+        ],
+        "observed_count": 0,
+        "frontend": "🌊SeaIR",
+        "error_type": "StepLimitError",
+        "error_message": "step limit exceeded: 40"
+      }
+    },
+    {
+      "case": "PhilosophyGorillaException (DungLang vs YakiimoIR)",
+      "trace_equal": true,
+      "error_equal": true,
+      "surface_diff": true,
+      "step_left": 2,
+      "step_right": 2,
+      "left_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🦍DungLang",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong? Uho."
+      },
+      "right_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🍠YakiimoIR",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong? Uho."
+      }
+    }
+  ]
+}

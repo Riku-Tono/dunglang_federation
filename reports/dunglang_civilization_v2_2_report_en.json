@@ -1,0 +1,492 @@
+{
+  "version": "DungLang Civilization v2.2",
+  "optimizer": {
+    "original_nodes": 8,
+    "optimized_nodes": 2,
+    "folded_nodes": 6,
+    "philosophy_calls": 0,
+    "axiom_break_prob": 0.0
+  },
+  "federation": [
+    {
+      "case": "common success",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "💩ScatLang",
+      "right_frontend": "🌊SeaIR",
+      "left_steps": 24,
+      "right_steps": 24,
+      "left_error": null,
+      "right_error": null,
+      "kont_equal": true
+    },
+    {
+      "case": "philosophy fail",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "🦍DungLang",
+      "right_frontend": "🍠YakiimoIR",
+      "left_steps": 2,
+      "right_steps": 2,
+      "left_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🦍DungLang",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong?"
+      },
+      "right_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🍠YakiimoIR",
+        "error_type": "PhilosophyGorillaException",
+        "error_message": "To whom does a fart belong?"
+      },
+      "kont_equal": true
+    }
+  ],
+  "temporal_rewrites": [
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "💨 Lv7(Mammoth)",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10 past rewrite",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "rewritten_as": "Declared to have never existed from the beginning"
+    }
+  ],
+  "civilization_diff": {
+    "official_history_count": 0,
+    "archaeological_artifact_count": 2,
+    "full_log_count": 7,
+    "missing_from_official": [
+      "💨 Lv7(Mammoth)",
+      "🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "🍌×10 past rewrite",
+      "🪨 Cave painting trace: 💨 Lv7(Mammoth)",
+      "🍌×10 past rewrite",
+      "🪨 Cave painting trace: 🌍 UhoTribe→BananaTribe Concentration:7 Bananas:14",
+      "🍌×10 → 2 official history entries rewritten"
+    ]
+  },
+  "ghost_odor_v21": {
+    "step": 1,
+    "kind": "ghost_odor",
+    "detail": "👻 Ghost Odor Lv1: Odor exists but perpetrator absent",
+    "frontend": "🦣CaveA+🦣CaveB",
+    "era": "liminal",
+    "cave_a": "🦣CaveA",
+    "cave_b": "🦣CaveB",
+    "odor_level": 1
+  },
+  "two_phase_commit": [
+    {
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 5,
+      "final_status": "COMMITTED",
+      "logs": [
+        {
+          "cave": "🦣CaveA",
+          "phase": "Prepare",
+          "status": "PREPARED",
+          "step": 1,
+          "detail": "OK"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Prepare",
+          "status": "PREPARED",
+          "step": 1,
+          "detail": "OK"
+        },
+        {
+          "cave": "🦣CaveA",
+          "phase": "Commit",
+          "status": "COMMITTED",
+          "step": 2,
+          "detail": "CommittedOdor Lv5"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Commit",
+          "status": "COMMITTED",
+          "step": 2,
+          "detail": "Observation confirmed"
+        }
+      ],
+      "ghost_event": null,
+      "artifacts": []
+    },
+    {
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 7,
+      "final_status": "GHOST",
+      "logs": [
+        {
+          "cave": "🦣CaveA",
+          "phase": "Prepare",
+          "status": "PREPARED",
+          "step": 1,
+          "detail": "OK"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Prepare",
+          "status": "ROLLED_BACK",
+          "step": 1,
+          "detail": "unbound variable: missing_observer"
+        },
+        {
+          "cave": "🦣CaveA",
+          "phase": "Commit",
+          "status": "COMMITTED",
+          "step": 2,
+          "detail": "CommittedOdor Lv7"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Rollback",
+          "status": "ROLLED_BACK",
+          "step": 2,
+          "detail": "RolledBackOdor"
+        },
+        {
+          "cave": "Coordinator",
+          "phase": "Ghost",
+          "status": "GHOST",
+          "step": 2,
+          "detail": "Ghost Odor confirmed"
+        }
+      ],
+      "ghost_event": {
+        "step": 1,
+        "kind": "ghost_odor",
+        "detail": "👻 Ghost Odor Lv7: 🦣CaveA committed · 🦣CaveB rolled back",
+        "frontend": "🦣CaveA+🦣CaveB",
+        "era": "liminal",
+        "cave_a": "🦣CaveA",
+        "cave_b": "🦣CaveB",
+        "odor_level": 7
+      },
+      "artifacts": [
+        {
+          "step": 1,
+          "kind": "artifact",
+          "detail": "🪨 2PC cave painting: 🦣CaveA emission trace (committed)",
+          "frontend": "ArchaeologyIR",
+          "era": "archaeological",
+          "artifact_id": "2PC-A-1",
+          "source_event": "👻 Ghost Odor Lv7: 🦣CaveA committed · 🦣CaveB rolled back",
+          "confidence": 0.91
+        },
+        {
+          "step": 1,
+          "kind": "artifact",
+          "detail": "🪨 2PC cave painting: 🦣CaveB rollback trace",
+          "frontend": "ArchaeologyIR",
+          "era": "archaeological",
+          "artifact_id": "2PC-B-1",
+          "source_event": "👻 Ghost Odor Lv7: 🦣CaveA committed · 🦣CaveB rolled back",
+          "confidence": 0.68
+        }
+      ]
+    },
+    {
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 0,
+      "final_status": "ROLLED_BACK",
+      "logs": [
+        {
+          "cave": "🦣CaveA",
+          "phase": "Prepare",
+          "status": "ROLLED_BACK",
+          "step": 1,
+          "detail": "unbound variable: ghost_a"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Prepare",
+          "status": "ROLLED_BACK",
+          "step": 1,
+          "detail": "unbound variable: ghost_b"
+        },
+        {
+          "cave": "🦣CaveA",
+          "phase": "Rollback",
+          "status": "ROLLED_BACK",
+          "step": 2,
+          "detail": "Clean"
+        },
+        {
+          "cave": "🦣CaveB",
+          "phase": "Rollback",
+          "status": "ROLLED_BACK",
+          "step": 2,
+          "detail": "Clean"
+        }
+      ],
+      "ghost_event": null,
+      "artifacts": []
+    }
+  ],
+  "type_inference": [
+    {
+      "name": "Pure program",
+      "ok": true,
+      "bindings": {
+        "x": "PURE"
+      }
+    },
+    {
+      "name": "Diplomatic crisis program",
+      "ok": true,
+      "bindings": {
+        "__diplomatic__": "DIPLOMATIC"
+      }
+    },
+    {
+      "name": "Philosophy type error",
+      "ok": false,
+      "bindings": {
+        "q": "PHILOSOPHY"
+      }
+    },
+    {
+      "name": "Philosophy type + diplomatic (compound contamination)",
+      "ok": false,
+      "bindings": {
+        "q": "PHILOSOPHY",
+        "lv": "PURE",
+        "__diplomatic__": "DIPLOMATIC"
+      }
+    }
+  ],
+  "witness_council": [
+    {
+      "artifact_id": "ART-88-1",
+      "original_confidence": 0.85,
+      "adjusted_confidence": 0.664,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.91)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.61)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.56)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    },
+    {
+      "artifact_id": "ART-88-2",
+      "original_confidence": 0.85,
+      "adjusted_confidence": 0.504,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.91)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.50)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "objection",
+          "reason": "Insufficient evidence (0.30)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    },
+    {
+      "artifact_id": "GHOST-A-001",
+      "original_confidence": 0.72,
+      "adjusted_confidence": 0.636,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.75)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.63)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.58)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    },
+    {
+      "artifact_id": "GHOST-B-001",
+      "original_confidence": 0.64,
+      "adjusted_confidence": 0.597,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.74)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.65)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.50)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    },
+    {
+      "artifact_id": "2PC-A-1",
+      "original_confidence": 0.91,
+      "adjusted_confidence": 0.632,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.89)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "objection",
+          "reason": "Insufficient evidence (0.32)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.66)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    },
+    {
+      "artifact_id": "2PC-B-1",
+      "original_confidence": 0.68,
+      "adjusted_confidence": 0.48,
+      "verdict": "DISPUTED",
+      "votes": [
+        {
+          "witness": "ResearchGorilla",
+          "vote": "trust",
+          "reason": "Consistent with evidence (0.76)",
+          "weight": 1.0
+        },
+        {
+          "witness": "MeteorologicalGorilla",
+          "vote": "pending",
+          "reason": "Further investigation required (0.50)",
+          "weight": 1.0
+        },
+        {
+          "witness": "LegalGorilla",
+          "vote": "objection",
+          "reason": "Insufficient evidence (0.33)",
+          "weight": 2.0
+        },
+        {
+          "witness": "PhilosophyGorilla",
+          "vote": "excluded",
+          "reason": "🚫 PhilosophyGorilla: Auto-excluded (prior offenses: infinite loop ×3, bananas confiscated)",
+          "weight": 0.0
+        }
+      ],
+      "council_note": "Witnesses are divided. Continue tracking. Uho."
+    }
+  ],
+  "verdict_summary": {
+    "VERIFIED": 0,
+    "DISPUTED": 6,
+    "SEALED": 0
+  }
+}
