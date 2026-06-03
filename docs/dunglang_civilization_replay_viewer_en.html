@@ -1,0 +1,487 @@
+
+<h2 class="sr-only">DungLang Civilization v2.1 — Replay Civilization Viewer. A timeline viewer showing the official chronicle and secret log side by side.</h2>
+
+<style>
+:root {
+  --c-odor:    #1D9E75;
+  --c-diplo:   #D85A30;
+  --c-gc:      #BA7517;
+  --c-ghost:   #7F77DD;
+  --c-rewrite: #D4537E;
+  --c-normal:  #888780;
+  --c-odor-bg:    #E1F5EE;
+  --c-diplo-bg:   #FAECE7;
+  --c-gc-bg:      #FAEEDA;
+  --c-ghost-bg:   #EEEDFE;
+  --c-rewrite-bg: #FBEAF0;
+  --c-normal-bg:  #F1EFE8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-odor-bg:    #085041;
+    --c-diplo-bg:   #4A1B0C;
+    --c-gc-bg:      #412402;
+    --c-ghost-bg:   #26215C;
+    --c-rewrite-bg: #4B1528;
+    --c-normal-bg:  #2C2C2A;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); font-size: 14px; color: var(--color-text-primary); }
+
+.top-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 0 0.75rem;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  margin-bottom: 1rem;
+  flex-wrap: wrap; gap: 8px;
+}
+.title-block { display: flex; flex-direction: column; gap: 2px; }
+.title-main { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.title-sub  { font-size: 12px; color: var(--color-text-secondary); }
+
+.controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.filter-btn {
+  padding: 4px 10px; font-size: 12px; border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+  cursor: pointer; transition: background 0.12s;
+}
+.filter-btn.active { background: var(--color-background-secondary); color: var(--color-text-primary); font-weight: 500; }
+.filter-btn:hover { background: var(--color-background-secondary); }
+
+.speed-wrap { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
+.replay-btn {
+  padding: 5px 14px; font-size: 13px; font-weight: 500;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  cursor: pointer; display: flex; align-items: center; gap: 6px;
+}
+.replay-btn:hover { background: var(--color-background-tertiary); }
+
+.dual-pane {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+.pane {
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+.pane-header {
+  padding: 8px 12px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  font-size: 12px; font-weight: 500;
+  display: flex; align-items: center; gap: 6px;
+}
+.pane-header.official { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.pane-header.secret   { background: var(--c-rewrite-bg); color: var(--c-rewrite); }
+.pane-body { padding: 8px; min-height: 120px; display: flex; flex-direction: column; gap: 4px; }
+
+.event-row {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 6px 8px; border-radius: var(--border-radius-md);
+  border: 0.5px solid transparent;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.event-row.show { opacity: 1; transform: translateY(0); }
+.event-row.hidden-by-filter { display: none; }
+
+.ev-step {
+  font-size: 11px; font-weight: 500; min-width: 42px;
+  padding-top: 1px; color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+.ev-icon { font-size: 16px; min-width: 20px; }
+.ev-body { flex: 1; }
+.ev-kind { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+.ev-detail { font-size: 12px; color: var(--color-text-secondary); margin-top: 1px; line-height: 1.4; }
+.ev-erased { font-size: 11px; color: var(--c-rewrite); margin-top: 2px; }
+
+.ev-odor    { background: var(--c-odor-bg);    border-color: var(--c-odor);    }
+.ev-diplo   { background: var(--c-diplo-bg);   border-color: var(--c-diplo);   }
+.ev-gc      { background: var(--c-gc-bg);       border-color: var(--c-gc);      }
+.ev-ghost   { background: var(--c-ghost-bg);    border-color: var(--c-ghost);   }
+.ev-rewrite { background: var(--c-rewrite-bg);  border-color: var(--c-rewrite); }
+.ev-normal  { background: var(--c-normal-bg);                                   }
+
+.ev-odor  .ev-kind  { color: var(--c-odor);    }
+.ev-diplo .ev-kind  { color: var(--c-diplo);   }
+.ev-gc    .ev-kind  { color: var(--c-gc);       }
+.ev-ghost .ev-kind  { color: var(--c-ghost);   }
+.ev-rewrite .ev-kind{ color: var(--c-rewrite); }
+.ev-normal .ev-kind { color: var(--c-normal);  }
+
+.empty-state {
+  font-size: 12px; color: var(--color-text-secondary);
+  padding: 16px 8px; text-align: center; opacity: 0.6;
+}
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px; margin-bottom: 1rem;
+}
+.stat-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.stat-label { font-size: 11px; color: var(--color-text-secondary); }
+.stat-val   { font-size: 20px; font-weight: 500; }
+
+.timeline-bar {
+  height: 4px; background: var(--color-background-secondary);
+  border-radius: 2px; margin-bottom: 0.75rem; overflow: hidden;
+}
+.timeline-progress {
+  height: 100%; background: var(--c-odor);
+  border-radius: 2px; width: 0%;
+  transition: width 0.15s;
+}
+
+.legend {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 0.75rem;
+}
+.leg-item {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 11px; color: var(--color-text-secondary);
+  cursor: pointer; padding: 2px 0;
+}
+.leg-dot {
+  width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0;
+}
+.leg-item.inactive { opacity: 0.35; }
+
+.msg-overlay {
+  position: fixed; bottom: 1rem; right: 1rem;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 8px 14px; font-size: 12px; font-weight: 500;
+  box-shadow: none;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+.msg-overlay.show { opacity: 1; }
+</style>
+
+<div class="top-bar">
+  <div class="title-block">
+    <span class="title-main">DungLang Civilization v2.1 — Replay Viewer</span>
+    <span class="title-sub">History vanishes. The log does not.</span>
+  </div>
+  <div class="controls">
+    <div class="speed-wrap">
+      <i class="ti ti-player-play" aria-hidden="true" style="font-size:14px"></i>
+      <input type="range" id="speed" min="100" max="1200" value="500" step="100" style="width:80px">
+      <span id="speed-out">500ms</span>
+    </div>
+    <button class="replay-btn" id="replayBtn">
+      <i class="ti ti-refresh" aria-hidden="true" style="font-size:14px"></i>Replay
+    </button>
+  </div>
+</div>
+
+<div class="stats-row" id="statsRow">
+  <div class="stat-card"><span class="stat-label">total events</span><span class="stat-val" id="s-total">0</span></div>
+  <div class="stat-card"><span class="stat-label">secret events</span><span class="stat-val" id="s-secret" style="color:var(--c-rewrite)">0</span></div>
+  <div class="stat-card"><span class="stat-label">ghost odors</span><span class="stat-val" id="s-ghost" style="color:var(--c-ghost)">0</span></div>
+  <div class="stat-card"><span class="stat-label">history erased</span><span class="stat-val" id="s-erased" style="color:var(--c-gc)">0</span></div>
+</div>
+
+<div class="timeline-bar"><div class="timeline-progress" id="progress"></div></div>
+
+<div class="legend" id="legend"></div>
+
+<div class="dual-pane">
+  <div class="pane">
+    <div class="pane-header official">
+      <i class="ti ti-book" aria-hidden="true"></i>Official Chronicle (surface history)
+    </div>
+    <div class="pane-body" id="official-body"></div>
+  </div>
+  <div class="pane">
+    <div class="pane-header secret">
+      <i class="ti ti-eye" aria-hidden="true"></i>secret event log (the truth)
+    </div>
+    <div class="pane-body" id="secret-body"></div>
+  </div>
+</div>
+
+<div style="display:flex; gap:8px; flex-wrap:wrap; padding-bottom:1rem">
+  <button class="filter-btn active" data-filter="all">all</button>
+  <button class="filter-btn" data-filter="odor">odor</button>
+  <button class="filter-btn" data-filter="diplo">diplomatic</button>
+  <button class="filter-btn" data-filter="gc">banana gc</button>
+  <button class="filter-btn" data-filter="ghost">ghost odor</button>
+  <button class="filter-btn" data-filter="rewrite">history rewrite</button>
+  <button onclick="sendPrompt('Tell me the next features for DungLang Civilization v2.1 Uho 🦍')" class="filter-btn" style="margin-left:auto">Ask for next ideas Uho ↗</button>
+</div>
+
+<div class="msg-overlay" id="msg"></div>
+
+<script>
+const EVENTS = [
+  {
+    step:1, kind:"ghost", frontend:"🦣CaveA+CaveB",
+    detail:"Ghost Odor Lv5 — cave_a emission succeeded, cave_b failed",
+    secret:"CaveA definitely emitted. But no one admits it. The odor exists in the world.",
+    official:null
+  },
+  {
+    step:6, kind:"odor", frontend:"💩ScatLang",
+    detail:"Odor Lv4 source: Mammoth",
+    secret:"Mammoth emitted on the plains. An observer was present.",
+    official:"step 6: Unusual smell observed near Mammoth"
+  },
+  {
+    step:17, kind:"odor", frontend:"🦍DungLang",
+    detail:"Odor Lv7 source: Mammoth (omnidirectional)",
+    secret:"Omnidirectional odor Lv7. Far exceeds inter-tribal treaty threshold of 3.",
+    official:"step 17: Unusual smell of unknown origin (MeteorologicalGorilla investigating)"
+  },
+  {
+    step:42, kind:"diplo", frontend:"🦍DungLang",
+    detail:"🌍 Diplomatic incident — UhoTribe→BananaTribe Concentration:7 Reparations:14 bananas",
+    secret:"Recorded in UhoTribe diplomatic channel: payment of 14 bananas confirmed. Mammoth is the suspect.",
+    official:"step 42: UhoTribe · BananaTribe friendship treaty renewed (banana exchange)"
+  },
+  {
+    step:55, kind:"odor", frontend:"🍠YakiimoIR",
+    detail:"Odor Lv2 source: roasted sweet potato (side effect)",
+    secret:"Natural occurrence after consuming roasted sweet potato. MeteorologicalGorilla is witness.",
+    official:"step 55: Cooking smoke observed"
+  },
+  {
+    step:71, kind:"ghost", frontend:"🌊SeaIR+💩ScatLang",
+    detail:"Ghost Odor Lv3 — inter-cave transaction failed",
+    secret:"SeaIR side emission complete. ScatLang side rolled back. Only the odor remains. Perpetrator absent.",
+    official:null
+  },
+  {
+    step:88, kind:"rewrite", frontend:"🦍DungLang",
+    detail:"🍌×3 → History rewrite: step17 · step42 erased",
+    erased:["step 17: Odor Lv7 (Mammoth)", "step 42: Diplomatic crisis (14 bananas)"],
+    rewritten_as:"Declared to have never existed from the beginning",
+    secret:"HistoryRewriteEvent logged: 2 entries erased. But this log does not vanish.",
+    official:"(blank)"
+  },
+  {
+    step:89, kind:"gc", frontend:"🦍DungLang",
+    detail:"BananaGC — 3 memories forgotten",
+    secret:"3 memory buffer entries cleared. However gc_events remain.",
+    official:"step 89: (no record)"
+  },
+  {
+    step:99, kind:"odor", frontend:"🍠YakiimoIR",
+    detail:"Odor Lv9 source: PhilosophyGorilla (post-axiom collapse)",
+    secret:"Occurred after collapse of axiom 'a fart is wind until observed'. Odor level equivalent to 999 but capped.",
+    official:"step 99: Strong odor observed near Philosophy Institute. Cause under investigation."
+  }
+];
+
+const KIND_META = {
+  odor:    { icon:"ti-wind",           label:"odor",            cls:"ev-odor"    },
+  diplo:   { icon:"ti-world",          label:"diplomatic",      cls:"ev-diplo"   },
+  gc:      { icon:"ti-leaf",           label:"banana gc",       cls:"ev-gc"      },
+  ghost:   { icon:"ti-ghost",          label:"ghost odor",      cls:"ev-ghost"   },
+  rewrite: { icon:"ti-history",        label:"history rewrite", cls:"ev-rewrite" },
+  normal:  { icon:"ti-point",          label:"event",           cls:"ev-normal"  },
+};
+
+const LEG_COLORS = {
+  odor:"#1D9E75", diplo:"#D85A30", gc:"#BA7517", ghost:"#7F77DD", rewrite:"#D4537E"
+};
+
+let activeFilter = "all";
+let replayTimer = null;
+let revealedCount = 0;
+let inReplay = false;
+
+function buildLegend() {
+  const el = document.getElementById("legend");
+  el.innerHTML = "";
+  Object.entries(LEG_COLORS).forEach(([k, color]) => {
+    const m = KIND_META[k];
+    const item = document.createElement("div");
+    item.className = "leg-item";
+    item.dataset.kind = k;
+    item.innerHTML = `<span class="leg-dot" style="background:${color}"></span>${m.label}`;
+    item.addEventListener("click", () => {
+      activeFilter = (activeFilter === k) ? "all" : k;
+      document.querySelectorAll(".filter-btn").forEach(b => {
+        b.classList.toggle("active", b.dataset.filter === activeFilter || (activeFilter === "all" && b.dataset.filter === "all"));
+      });
+      applyFilter();
+      updateLegendState();
+    });
+    el.appendChild(item);
+  });
+}
+
+function updateLegendState() {
+  document.querySelectorAll(".leg-item").forEach(item => {
+    item.classList.toggle("inactive", activeFilter !== "all" && item.dataset.kind !== activeFilter);
+  });
+}
+
+function buildRows() {
+  const offBody = document.getElementById("official-body");
+  const secBody = document.getElementById("secret-body");
+  offBody.innerHTML = "";
+  secBody.innerHTML = "";
+
+  EVENTS.forEach((ev, i) => {
+    const m = KIND_META[ev.kind] || KIND_META.normal;
+
+    const secRow = document.createElement("div");
+    secRow.className = `event-row ${m.cls}`;
+    secRow.dataset.kind = ev.kind;
+    secRow.dataset.idx = i;
+    secRow.id = `sec-${i}`;
+    secRow.innerHTML = `
+      <span class="ev-step">s${ev.step}</span>
+      <i class="ti ${m.icon} ev-icon" aria-hidden="true"></i>
+      <div class="ev-body">
+        <div class="ev-kind">${m.label}</div>
+        <div class="ev-detail">${ev.secret || ev.detail}</div>
+        ${ev.erased ? `<div class="ev-erased">erased: ${ev.erased.join(" / ")}</div>` : ""}
+      </div>`;
+    secBody.appendChild(secRow);
+
+    const offRow = document.createElement("div");
+    offRow.className = `event-row ${ev.official ? m.cls : "ev-normal"}`;
+    offRow.dataset.kind = ev.kind;
+    offRow.dataset.idx = i;
+    offRow.id = `off-${i}`;
+    if (ev.official) {
+      offRow.innerHTML = `
+        <span class="ev-step">s${ev.step}</span>
+        <i class="ti ${m.icon} ev-icon" aria-hidden="true"></i>
+        <div class="ev-body">
+          <div class="ev-kind">${m.label}</div>
+          <div class="ev-detail">${ev.official}</div>
+        </div>`;
+    } else {
+      offRow.innerHTML = `
+        <span class="ev-step">s${ev.step}</span>
+        <i class="ti ti-minus ev-icon" aria-hidden="true" style="color:var(--color-text-secondary);opacity:0.4"></i>
+        <div class="ev-body">
+          <div class="ev-detail" style="color:var(--color-text-secondary);opacity:0.4;font-style:italic">No record (removed from official chronicle)</div>
+        </div>`;
+    }
+    offBody.appendChild(offRow);
+  });
+
+  updateStats(0);
+}
+
+function applyFilter() {
+  document.querySelectorAll(".event-row").forEach(row => {
+    const shouldShow = activeFilter === "all" || row.dataset.kind === activeFilter;
+    row.classList.toggle("hidden-by-filter", !shouldShow);
+  });
+  updateEmpty();
+}
+
+function updateEmpty() {
+  ["official-body","secret-body"].forEach(id => {
+    const body = document.getElementById(id);
+    let hasVisible = false;
+    body.querySelectorAll(".event-row.show").forEach(r => {
+      if (!r.classList.contains("hidden-by-filter")) hasVisible = true;
+    });
+    let empty = body.querySelector(".empty-state");
+    if (!hasVisible) {
+      if (!empty) { empty = document.createElement("p"); empty.className="empty-state"; empty.textContent="No matching events"; body.appendChild(empty); }
+      empty.style.display = "";
+    } else {
+      if (empty) empty.style.display = "none";
+    }
+  });
+}
+
+function updateStats(revealed) {
+  const visible = EVENTS.slice(0, revealed);
+  document.getElementById("s-total").textContent = visible.length;
+  document.getElementById("s-secret").textContent = visible.filter(e => !e.official).length;
+  document.getElementById("s-ghost").textContent = visible.filter(e => e.kind === "ghost").length;
+  document.getElementById("s-erased").textContent = visible.filter(e => e.kind === "rewrite").reduce((a,e) => a + (e.erased ? e.erased.length : 0), 0);
+  document.getElementById("progress").style.width = (revealed / EVENTS.length * 100) + "%";
+}
+
+function showMsg(text, dur=1400) {
+  const el = document.getElementById("msg");
+  el.textContent = text;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), dur);
+}
+
+function revealOne(idx) {
+  const off = document.getElementById(`off-${idx}`);
+  const sec = document.getElementById(`sec-${idx}`);
+  if (off) { off.classList.add("show"); }
+  if (sec) { sec.classList.add("show"); }
+  revealedCount = idx + 1;
+  updateStats(revealedCount);
+  applyFilter();
+
+  const ev = EVENTS[idx];
+  if (ev.kind === "rewrite") showMsg("📜 History has been rewritten...", 1800);
+  else if (ev.kind === "ghost") showMsg("👻 Ghost Odor detected!", 1600);
+}
+
+function startReplay() {
+  if (inReplay) { clearInterval(replayTimer); inReplay = false; }
+  document.querySelectorAll(".event-row").forEach(r => r.classList.remove("show"));
+  document.querySelectorAll(".empty-state").forEach(e => e.remove());
+  revealedCount = 0;
+  updateStats(0);
+  document.getElementById("progress").style.width = "0%";
+  inReplay = true;
+
+  let idx = 0;
+  const speed = parseInt(document.getElementById("speed").value);
+  replayTimer = setInterval(() => {
+    if (idx >= EVENTS.length) { clearInterval(replayTimer); inReplay = false; return; }
+    revealOne(idx++);
+  }, speed);
+}
+
+document.getElementById("replayBtn").addEventListener("click", startReplay);
+
+document.getElementById("speed").addEventListener("input", function() {
+  document.getElementById("speed-out").textContent = this.value + "ms";
+});
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    applyFilter();
+    updateLegendState();
+  });
+});
+
+buildLegend();
+buildRows();
+
+setTimeout(() => {
+  let idx = 0;
+  const t = setInterval(() => {
+    if (idx >= EVENTS.length) { clearInterval(t); inReplay = false; return; }
+    revealOne(idx++);
+  }, 500);
+  inReplay = true;
+}, 300);
+</script>
