@@ -1,1 +1,14 @@
-# dunglang_federation
+# DungLang Federation 4.0
+
+> **プロトタイプ / デモ / ショーケース** — 完全なコンパイラや形式的証明ではありません。
+
+DungLang Federation 4.0 は、DungLang Federation プロトタイプ系列を統合したショーケース版です。  
+Federation 1.0 の中核である「橋渡し」のアイデアに、Civilization v2 / v2.1 / v3.0 のシミュレーション層を組み合わせています。  
+含まれる要素は、イベント履歴、履歴の書き換え、憲法、選挙、文明メトリクス、神話生成です。
+
+古いバージョンは開発履歴として `/versions` に保存されています。
+
+---
+
+## アーキテクチャ
+
