@@ -1,0 +1,617 @@
+{
+  "meta": {
+    "version": "DungLang Federation 4.0",
+    "disclaimer": "prototype / demo / showcase — 完全なコンパイラ・形式証明・分散処理系ではありません。",
+    "history": [
+      {
+        "version": "Federation 1.0",
+        "highlight": "臭気IR統合・CEK洞窟マシン・Error Federation代表ケース確認"
+      },
+      {
+        "version": "Civilization v2.0",
+        "highlight": "OdorOptimizer・Kont Federation・History Federation"
+      },
+      {
+        "version": "Civilization v2.1",
+        "highlight": "Temporal Banana Rewrite・Ghost Odor Archaeology・Causality Leak Detector"
+      },
+      {
+        "version": "Civilization v2.2",
+        "highlight": "OdorTypeInference・TwoPhaseCommit・WitnessCouncil"
+      },
+      {
+        "version": "Civilization v3.0",
+        "highlight": "Constitution Federation・Election System・CivMetrics・MythGenerator"
+      },
+      {
+        "version": "Federation 4.0",
+        "highlight": "全層統合ショーケース・公開版"
+      }
+    ]
+  },
+  "cek_demos": [
+    {
+      "name": "x=5, flush x",
+      "frontend": "💩ScatLang",
+      "ok": true,
+      "steps": 17,
+      "observed": [
+        "💩×5"
+      ]
+    },
+    {
+      "name": "x=5, flush x",
+      "frontend": "🌊SeaIR",
+      "ok": true,
+      "steps": 17,
+      "observed": [
+        "💩×5"
+      ]
+    },
+    {
+      "name": "x=5, flush x",
+      "frontend": "🍠YakiimoIR",
+      "ok": true,
+      "steps": 17,
+      "observed": [
+        "💩×5"
+      ]
+    },
+    {
+      "name": "DungLang微臭デモ",
+      "frontend": "🦍DungLang",
+      "phenomenon": {
+        "臭い": "微臭",
+        "容疑者": "焼き芋",
+        "副作用レベル": 1
+      },
+      "ok": true,
+      "odor_events": [
+        {
+          "level": 2,
+          "source": "焼き芋"
+        }
+      ]
+    },
+    {
+      "name": "DungLang全方位デモ（外交問題）",
+      "frontend": "🦍DungLang",
+      "phenomenon": {
+        "臭い": "全方位",
+        "容疑者": "マンモス",
+        "副作用レベル": 3
+      },
+      "ok": false,
+      "error": {
+        "step": 68,
+        "control_kind": "ReturnValue",
+        "expr_kind": "💩×10",
+        "kont_kind": "DiplomaticFlushK",
+        "kont_depth": 1,
+        "env_keys": [
+          "odor_level"
+        ],
+        "observed_count": 0,
+        "frontend": "🦍DungLang",
+        "error_type": "越境臭気例外",
+        "error_message": "ウホ族→バナナ族 濃度10 バナナ20本賠償"
+      },
+      "note": "越境臭気例外は設計通りのエラー。責任転嫁エンジン: 気象ゴリラのせい（慣例）"
+    },
+    {
+      "name": "バナナGCデモ",
+      "frontend": "🍠YakiimoIR",
+      "ok": true,
+      "gc_banana": 3,
+      "gc_erased": 0,
+      "note": "何かあったっけ？まあいいウホ🍌"
+    }
+  ],
+  "odor_optimizer": [
+    {
+      "original_level": 0,
+      "optimized_level": 0,
+      "strategy": "zero_elim"
+    },
+    {
+      "original_level": 1,
+      "optimized_level": 1,
+      "strategy": "local_only"
+    },
+    {
+      "original_level": 2,
+      "optimized_level": 2,
+      "strategy": "local_only"
+    },
+    {
+      "original_level": 3,
+      "optimized_level": 3,
+      "strategy": "diplomatic_check_required"
+    },
+    {
+      "original_level": 5,
+      "optimized_level": 5,
+      "strategy": "diplomatic_check_required"
+    },
+    {
+      "original_level": 7,
+      "optimized_level": 7,
+      "strategy": "diplomatic_violation_const"
+    },
+    {
+      "original_level": 10,
+      "optimized_level": 10,
+      "strategy": "diplomatic_violation_const"
+    }
+  ],
+  "error_federation": {
+    "cases": [
+      {
+        "case": "mod by zero",
+        "trace_equal": true,
+        "error_equal": true,
+        "surface_diff": true,
+        "step_left": 12,
+        "step_right": 12,
+        "left_error": {
+          "step": 11,
+          "control_kind": "ReturnValue",
+          "expr_kind": "💩₀",
+          "kont_kind": "ModRightK",
+          "kont_depth": 2,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "💩ScatLang",
+          "error_type": "ScatError",
+          "error_message": "mod by zero ウホ"
+        },
+        "right_error": {
+          "step": 11,
+          "control_kind": "ReturnValue",
+          "expr_kind": "💩₀",
+          "kont_kind": "ModRightK",
+          "kont_depth": 2,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "🌊SeaIR",
+          "error_type": "ScatError",
+          "error_message": "mod by zero ウホ"
+        },
+        "passed": true
+      },
+      {
+        "case": "unbound variable",
+        "trace_equal": true,
+        "error_equal": true,
+        "surface_diff": true,
+        "step_left": 2,
+        "step_right": 2,
+        "left_error": {
+          "step": 1,
+          "control_kind": "EvalExpr",
+          "expr_kind": "Var",
+          "kont_kind": "FlushK",
+          "kont_depth": 1,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "💩ScatLang",
+          "error_type": "ScatError",
+          "error_message": "unbound variable: missing"
+        },
+        "right_error": {
+          "step": 1,
+          "control_kind": "EvalExpr",
+          "expr_kind": "Var",
+          "kont_kind": "FlushK",
+          "kont_depth": 1,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "🌊SeaIR",
+          "error_type": "ScatError",
+          "error_message": "unbound variable: missing"
+        },
+        "passed": true
+      },
+      {
+        "case": "step limit / 便秘",
+        "trace_equal": true,
+        "error_equal": true,
+        "surface_diff": true,
+        "step_left": 40,
+        "step_right": 40,
+        "left_error": {
+          "step": 40,
+          "control_kind": "EvalExpr",
+          "expr_kind": "PoopSuccExpr",
+          "kont_kind": "NeqRightK",
+          "kont_depth": 2,
+          "env_keys": [
+            "x"
+          ],
+          "observed_count": 0,
+          "frontend": "💩ScatLang",
+          "error_type": "StepLimitError",
+          "error_message": "step limit exceeded: 40"
+        },
+        "right_error": {
+          "step": 40,
+          "control_kind": "EvalExpr",
+          "expr_kind": "PoopSuccExpr",
+          "kont_kind": "NeqRightK",
+          "kont_depth": 2,
+          "env_keys": [
+            "x"
+          ],
+          "observed_count": 0,
+          "frontend": "🌊SeaIR",
+          "error_type": "StepLimitError",
+          "error_message": "step limit exceeded: 40"
+        },
+        "passed": true
+      },
+      {
+        "case": "哲学ゴリラ例外（DungLang vs YakiimoIR）",
+        "trace_equal": true,
+        "error_equal": true,
+        "surface_diff": true,
+        "step_left": 2,
+        "step_right": 2,
+        "left_error": {
+          "step": 1,
+          "control_kind": "EvalExpr",
+          "expr_kind": "PhilosophyExpr",
+          "kont_kind": "AssignK",
+          "kont_depth": 1,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "🦍DungLang",
+          "error_type": "哲学ゴリラ例外",
+          "error_message": "おならとは誰のものかウホ"
+        },
+        "right_error": {
+          "step": 1,
+          "control_kind": "EvalExpr",
+          "expr_kind": "PhilosophyExpr",
+          "kont_kind": "AssignK",
+          "kont_depth": 1,
+          "env_keys": [],
+          "observed_count": 0,
+          "frontend": "🍠YakiimoIR",
+          "error_type": "哲学ゴリラ例外",
+          "error_message": "おならとは誰のものかウホ"
+        },
+        "passed": true
+      }
+    ],
+    "all_passed": true
+  },
+  "civilization": {
+    "constitution": {
+      "articles": [
+        {
+          "article_no": 1,
+          "title": "証人資格",
+          "rule": "哲学ゴリラは証人になれない"
+        },
+        {
+          "article_no": 2,
+          "title": "GhostOdor無罪推定",
+          "rule": "GhostOdorは直接有罪推定しない"
+        },
+        {
+          "article_no": 3,
+          "title": "バナナ歴史改変権",
+          "rule": "バナナ3本以上で歴史改変を申請できる"
+        },
+        {
+          "article_no": 4,
+          "title": "越境臭気外交",
+          "rule": "GhostOdorの越境発生は外交案件である"
+        }
+      ]
+    },
+    "election": {
+      "step": 200,
+      "term_no": 18,
+      "winners": [
+        {
+          "name": "法務ゴリラ",
+          "party": "石板法治党",
+          "policy": "厳罰主義"
+        },
+        {
+          "name": "革命ゴリラ",
+          "party": "洞窟革命戦線",
+          "policy": "革命的無罪主義"
+        },
+        {
+          "name": "バナナ党ゴリラ",
+          "party": "バナナ党",
+          "policy": "バナナ福祉主義"
+        }
+      ],
+      "vote_share": {
+        "研究ゴリラ": 0.134,
+        "気象ゴリラ": 0.118,
+        "法務ゴリラ": 0.276,
+        "バナナ党ゴリラ": 0.206,
+        "革命ゴリラ": 0.266
+      }
+    },
+    "ghost_verdict": "GhostOdor → 無罪。臭気は民衆の自己表現ウホ",
+    "history_rewrites": [
+      {
+        "step": 300,
+        "kind": "history_rewrite",
+        "detail": "🍌×3: 公式歴史を改変",
+        "frontend": "BananaGC",
+        "era": "meta",
+        "erased_event": "💨 Lv7(マンモス)",
+        "rewritten_as": "最初から存在しなかったことになった"
+      },
+      {
+        "step": 300,
+        "kind": "history_rewrite",
+        "detail": "🍌×3: 公式歴史を改変",
+        "frontend": "BananaGC",
+        "era": "meta",
+        "erased_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "rewritten_as": "最初から存在しなかったことになった"
+      }
+    ],
+    "metrics": {
+      "stability": 68.5,
+      "diplomatic_tension": 50,
+      "philosophy_pollution": 36,
+      "history_rewrite_rate": 12.5,
+      "ghost_odor_count": 1,
+      "myth_pressure": 92
+    },
+    "events": [
+      {
+        "step": 6,
+        "kind": "odor",
+        "detail": "💨 Lv7(マンモス)",
+        "frontend": "🦍DungLang",
+        "era": "official"
+      },
+      {
+        "step": 42,
+        "kind": "diplomatic",
+        "detail": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "frontend": "🦍DungLang",
+        "era": "official"
+      },
+      {
+        "step": 55,
+        "kind": "ghost_odor",
+        "detail": "👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック",
+        "frontend": "2PCIR",
+        "era": "liminal",
+        "cave_a": "🦣CaveA",
+        "cave_b": "🦣CaveB",
+        "odor_level": 5
+      },
+      {
+        "step": 120,
+        "kind": "constitution",
+        "detail": "⚖️ DungLang憲法制定: GhostOdor無罪推定を採択",
+        "frontend": "ConstitutionIR",
+        "era": "legal"
+      },
+      {
+        "step": 150,
+        "kind": "constitution_violation",
+        "detail": "⚖️ 第2条違反: GhostOdorを直接有罪にした",
+        "frontend": "ConstitutionIR",
+        "era": "legal",
+        "article_no": 2,
+        "article_title": "GhostOdor無罪推定",
+        "offender": "法務ゴリラ",
+        "severity": 4
+      },
+      {
+        "step": 151,
+        "kind": "constitution_violation",
+        "detail": "⚖️ 第1条違反: 哲学ゴリラを証人にした",
+        "frontend": "ConstitutionIR",
+        "era": "legal",
+        "article_no": 1,
+        "article_title": "証人資格",
+        "offender": "哲学ゴリラ",
+        "severity": 5
+      },
+      {
+        "step": 200,
+        "kind": "election",
+        "detail": "🗳️ CouncilTerm #18: 法務ゴリラ, 革命ゴリラ, バナナ党ゴリラ が当選",
+        "frontend": "ElectionIR",
+        "era": "political"
+      },
+      {
+        "step": 210,
+        "kind": "council_verdict",
+        "detail": "評議会判決: GhostOdor → 無罪。臭気は民衆の自己表現ウホ",
+        "frontend": "CouncilIR",
+        "era": "political"
+      },
+      {
+        "step": 300,
+        "kind": "history_rewrite",
+        "detail": "🍌×3: 公式歴史を改変",
+        "frontend": "BananaGC",
+        "era": "meta",
+        "erased_event": "💨 Lv7(マンモス)",
+        "rewritten_as": "最初から存在しなかったことになった"
+      },
+      {
+        "step": 300,
+        "kind": "artifact",
+        "detail": "🪨 壁画痕跡: 💨 Lv7(マンモス)",
+        "frontend": "ArchaeologyIR",
+        "era": "archaeological",
+        "artifact_id": "ART-300-1",
+        "source_event": "💨 Lv7(マンモス)",
+        "confidence": 0.5
+      },
+      {
+        "step": 300,
+        "kind": "history_rewrite",
+        "detail": "🍌×3: 公式歴史を改変",
+        "frontend": "BananaGC",
+        "era": "meta",
+        "erased_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "rewritten_as": "最初から存在しなかったことになった"
+      },
+      {
+        "step": 300,
+        "kind": "artifact",
+        "detail": "🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "frontend": "ArchaeologyIR",
+        "era": "archaeological",
+        "artifact_id": "ART-300-2",
+        "source_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "confidence": 0.5
+      },
+      {
+        "step": 300,
+        "kind": "banana_gc",
+        "detail": "🍌×3: 2件が公式歴史から消滅",
+        "frontend": "BananaGC",
+        "era": "meta"
+      },
+      {
+        "step": 450,
+        "kind": "legend",
+        "detail": "📜 伝説: かつて見えざる臭気が洞窟から洞窟へ渡った。誰も責任を取らず、石板だけが震えた。",
+        "frontend": "MythIR",
+        "era": "legendary",
+        "source_events": [
+          "💨 Lv7(マンモス)",
+          "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+          "👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック"
+        ]
+      },
+      {
+        "step": 900,
+        "kind": "myth",
+        "detail": "✨ 神話: 三本のバナナが捧げられた時、事件は歴史から消えた。だが壁画は沈黙せず、GhostOdorは夜の風として戻る。",
+        "frontend": "MythIR",
+        "era": "mythic",
+        "myth_id": "MYTH-GHOST-ODOR-001",
+        "doctrine": "臭気は消えない。記録だけが消える。",
+        "source_events": [
+          "💨 Lv7(マンモス)",
+          "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+          "👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック"
+        ]
+      },
+      {
+        "step": 1050,
+        "kind": "religion",
+        "detail": "⛪ GhostOdor教成立: 教義『臭気は消えない、記録だけが消える』",
+        "frontend": "MythIR",
+        "era": "religious"
+      }
+    ],
+    "official_history": [
+      {
+        "step": 120,
+        "kind": "constitution",
+        "detail": "⚖️ DungLang憲法制定: GhostOdor無罪推定を採択",
+        "frontend": "ConstitutionIR",
+        "era": "legal"
+      },
+      {
+        "step": 200,
+        "kind": "election",
+        "detail": "🗳️ CouncilTerm #18: 法務ゴリラ, 革命ゴリラ, バナナ党ゴリラ が当選",
+        "frontend": "ElectionIR",
+        "era": "political"
+      },
+      {
+        "step": 210,
+        "kind": "council_verdict",
+        "detail": "評議会判決: GhostOdor → 無罪。臭気は民衆の自己表現ウホ",
+        "frontend": "CouncilIR",
+        "era": "political"
+      }
+    ],
+    "archaeology": [
+      {
+        "step": 300,
+        "kind": "artifact",
+        "detail": "🪨 壁画痕跡: 💨 Lv7(マンモス)",
+        "frontend": "ArchaeologyIR",
+        "era": "archaeological",
+        "artifact_id": "ART-300-1",
+        "source_event": "💨 Lv7(マンモス)",
+        "confidence": 0.5
+      },
+      {
+        "step": 300,
+        "kind": "artifact",
+        "detail": "🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "frontend": "ArchaeologyIR",
+        "era": "archaeological",
+        "artifact_id": "ART-300-2",
+        "source_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+        "confidence": 0.5
+      }
+    ],
+    "myths": [
+      {
+        "step": 450,
+        "kind": "legend",
+        "detail": "📜 伝説: かつて見えざる臭気が洞窟から洞窟へ渡った。誰も責任を取らず、石板だけが震えた。",
+        "frontend": "MythIR",
+        "era": "legendary",
+        "source_events": [
+          "💨 Lv7(マンモス)",
+          "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+          "👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック"
+        ]
+      },
+      {
+        "step": 900,
+        "kind": "myth",
+        "detail": "✨ 神話: 三本のバナナが捧げられた時、事件は歴史から消えた。だが壁画は沈黙せず、GhostOdorは夜の風として戻る。",
+        "frontend": "MythIR",
+        "era": "mythic",
+        "myth_id": "MYTH-GHOST-ODOR-001",
+        "doctrine": "臭気は消えない。記録だけが消える。",
+        "source_events": [
+          "💨 Lv7(マンモス)",
+          "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+          "👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック"
+        ]
+      },
+      {
+        "step": 1050,
+        "kind": "religion",
+        "detail": "⛪ GhostOdor教成立: 教義『臭気は消えない、記録だけが消える』",
+        "frontend": "MythIR",
+        "era": "religious"
+      }
+    ],
+    "replay": [
+      "📜 Replay Federation 4.0",
+      "  step    6 | 💨 [official] 💨 Lv7(マンモス)",
+      "  step   42 | 🌍 [official] 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "  step   55 | 👻 [liminal] 👻 Ghost Odor Lv5: CaveAコミット済み・CaveBロールバック",
+      "  step  120 | ⚖️ [legal] ⚖️ DungLang憲法制定: GhostOdor無罪推定を採択",
+      "  step  150 | 🚨 [legal] ⚖️ 第2条違反: GhostOdorを直接有罪にした",
+      "  step  151 | 🚨 [legal] ⚖️ 第1条違反: 哲学ゴリラを証人にした",
+      "  step  200 | 🗳️ [political] 🗳️ CouncilTerm #18: 法務ゴリラ, 革命ゴリラ, バナナ党ゴリラ が当選",
+      "  step  210 | 🏛️ [political] 評議会判決: GhostOdor → 無罪。臭気は民衆の自己表現ウホ",
+      "  step  300 | 🪨 [archaeological] 🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "  step  300 | 🪨 [archaeological] 🪨 壁画痕跡: 💨 Lv7(マンモス)",
+      "  step  300 | 🍌 [meta] 🍌×3: 2件が公式歴史から消滅",
+      "  step  300 | 📜🔥 [meta] 🍌×3: 公式歴史を改変",
+      "  step  300 | 📜🔥 [meta] 🍌×3: 公式歴史を改変",
+      "  step  450 | 📜 [legendary] 📜 伝説: かつて見えざる臭気が洞窟から洞窟へ渡った。誰も責任を取らず、石板だけが震えた。",
+      "  step  900 | ✨ [mythic] ✨ 神話: 三本のバナナが捧げられた時、事件は歴史から消えた。だが壁画は沈黙せず、GhostOdorは夜の風として戻る。",
+      "  step 1050 | ⛪ [religious] ⛪ GhostOdor教成立: 教義『臭気は消えない、記録だけが消える』"
+    ]
+  }
+}
