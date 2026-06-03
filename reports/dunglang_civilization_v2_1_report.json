@@ -1,0 +1,273 @@
+{
+  "version": "DungLang Civilization v2.1",
+  "optimizer": {
+    "original_nodes": 8,
+    "optimized_nodes": 2,
+    "folded_nodes": 6,
+    "philosophy_calls": 0,
+    "axiom_break_prob": 0.0
+  },
+  "federation": [
+    {
+      "case": "common success",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "💩ScatLang",
+      "right_frontend": "🌊SeaIR",
+      "left_steps": 24,
+      "right_steps": 24,
+      "left_error": null,
+      "right_error": null,
+      "kont_equal": true
+    },
+    {
+      "case": "philosophy same failure",
+      "trace_equal": true,
+      "surface_diff": true,
+      "left_frontend": "🦍DungLang",
+      "right_frontend": "🍠YakiimoIR",
+      "left_steps": 2,
+      "right_steps": 2,
+      "left_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🦍DungLang",
+        "error_type": "哲学ゴリラ例外",
+        "error_message": "おならとは誰のものか"
+      },
+      "right_error": {
+        "step": 1,
+        "control_kind": "EvalExpr",
+        "expr_kind": "PhilosophyExpr",
+        "kont_kind": "AssignK",
+        "kont_depth": 1,
+        "env_keys": [],
+        "observed_count": 0,
+        "frontend": "🍠YakiimoIR",
+        "error_type": "哲学ゴリラ例外",
+        "error_message": "おならとは誰のものか"
+      },
+      "kont_equal": true
+    }
+  ],
+  "temporal_rewrites": [
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10で過去改変",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "💨 Lv7(マンモス)",
+      "rewritten_as": "最初から存在しなかったことになった"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10で過去改変",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "rewritten_as": "最初から存在しなかったことになった"
+    }
+  ],
+  "civilization_diff": {
+    "official_history_count": 0,
+    "archaeological_artifact_count": 2,
+    "full_log_count": 7,
+    "missing_from_official": [
+      "💨 Lv7(マンモス)",
+      "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "🍌×10で過去改変",
+      "🪨 壁画痕跡: 💨 Lv7(マンモス)",
+      "🍌×10で過去改変",
+      "🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "🍌×10 → 2件の公式歴史を改変"
+    ]
+  },
+  "ghost_odor": {
+    "step": 1,
+    "kind": "ghost_odor",
+    "detail": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+    "frontend": "🦣CaveA+🦣CaveB",
+    "era": "liminal",
+    "cave_a": "🦣CaveA",
+    "cave_b": "🦣CaveB",
+    "odor_level": 1
+  },
+  "archaeology": [
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 壁画痕跡: 💨 Lv7(マンモス)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-1",
+      "source_event": "💨 Lv7(マンモス)",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-2",
+      "source_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "confidence": 0.85
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 洞窟A壁画: マンモスが何かをした形跡",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-A-001",
+      "source_event": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+      "confidence": 0.72
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 洞窟B壁画: 観測者 missing_observer と記録",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-B-001",
+      "source_event": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+      "confidence": 0.64
+    }
+  ],
+  "theorem_results": [
+    {
+      "statement": "おなら = 風",
+      "result": "証明失敗",
+      "reason": "観測者が存在するため、観測した瞬間に風ではなく事件になる",
+      "theorem": "ゴリラ不完全性定理 v2.1"
+    },
+    {
+      "statement": "おなら ≠ 風",
+      "result": "証明失敗",
+      "reason": "風向きが未束縛変数で、気象ゴリラが証言を拒否した",
+      "theorem": "ゴリラ不完全性定理 v2.1"
+    },
+    {
+      "statement": "この定理は証明可能",
+      "result": "証明失敗",
+      "reason": "定理が自分自身の臭気を観測してしまう",
+      "theorem": "ゴリラ不完全性定理 v2.1"
+    }
+  ],
+  "events": [
+    {
+      "step": 17,
+      "kind": "odor",
+      "detail": "💨 Lv7(マンモス)",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 34,
+      "kind": "diplomatic",
+      "detail": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "frontend": "🦍DungLang",
+      "era": "official"
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10で過去改変",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "💨 Lv7(マンモス)",
+      "rewritten_as": "最初から存在しなかったことになった"
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 壁画痕跡: 💨 Lv7(マンモス)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-1",
+      "source_event": "💨 Lv7(マンモス)",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "history_rewrite",
+      "detail": "🍌×10で過去改変",
+      "frontend": "🦍DungLang",
+      "era": "meta",
+      "erased_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "rewritten_as": "最初から存在しなかったことになった"
+    },
+    {
+      "step": 88,
+      "kind": "artifact",
+      "detail": "🪨 壁画痕跡: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "ART-88-2",
+      "source_event": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "confidence": 0.85
+    },
+    {
+      "step": 88,
+      "kind": "banana_gc",
+      "detail": "🍌×10 → 2件の公式歴史を改変",
+      "frontend": "🦍DungLang",
+      "era": "meta"
+    },
+    {
+      "step": 1,
+      "kind": "ghost_odor",
+      "detail": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+      "frontend": "🦣CaveA+🦣CaveB",
+      "era": "liminal",
+      "cave_a": "🦣CaveA",
+      "cave_b": "🦣CaveB",
+      "odor_level": 1
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 洞窟A壁画: マンモスが何かをした形跡",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-A-001",
+      "source_event": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+      "confidence": 0.72
+    },
+    {
+      "step": 1,
+      "kind": "artifact",
+      "detail": "🪨 洞窟B壁画: 観測者 missing_observer と記録",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "artifact_id": "GHOST-B-001",
+      "source_event": "👻 Ghost Odor Lv1: 臭いだけ存在・犯人不在",
+      "confidence": 0.64
+    },
+    {
+      "step": 88,
+      "kind": "causality_leak",
+      "detail": "公式歴史にない痕跡を検出: 💨 Lv7(マンモス)",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "leaked_from": "💨 Lv7(マンモス)",
+      "leaked_into": "ART-88-1"
+    },
+    {
+      "step": 88,
+      "kind": "causality_leak",
+      "detail": "公式歴史にない痕跡を検出: 🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "frontend": "ArchaeologyIR",
+      "era": "archaeological",
+      "leaked_from": "🌍 ウホ族→バナナ族 濃度7 バナナ14本",
+      "leaked_into": "ART-88-2"
+    }
+  ]
+}
